@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TerceiraAulaPDM</string>
+    <string name="app_name">QuartaAulaPDM</string>
     <string name="phone_number_placeholder">Número de Telefone</string>
     <string name="password_placeholder">Senha</string>
     <string name="login">Entrar</string>

@@ -1,4 +1,4 @@
-package com.pdm.third;
+package com.pdm.fourth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         Button login = findViewById(R.id.login);
 
         login.setOnClickListener(event -> {
-            Intent intent = new Intent(this, SelectPizza.class);
+            Intent intent = new Intent(this, SelectPizza2.class);
 
             phone.setText("");
             password.setText("");
