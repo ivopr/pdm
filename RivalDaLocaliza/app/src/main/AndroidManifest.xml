@@ -13,12 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.CarDetailsActivity"></activity>
+        <activity android:name=".activities.CarDetailsActivity" />
         <activity android:name=".activities.MyLoanedCarActivity" />
         <activity android:name=".activities.AvailableCarsActivity" />
         <activity
             android:name=".activities.LoginActivity"
-            android:windowSoftInputMode="stateVisible|adjustResize">
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -35,5 +35,5 @@ public interface RentService {
 	 * @return List<MyLoan>
 	 */
 	@GET("rentals/user")
-	Call<List<MyLoan>> getMyLoanedCar(@Header("Authorization") String userToken);
+	Call<MyLoan> getMyLoanedCar(@Header("Authorization") String userToken);
 }

@@ -40,7 +40,7 @@ public class RecycledCarAdapter extends RecyclerView.Adapter<RecycledCarAdapter.
 		holder.itemView.setOnClickListener(view -> {
 			Intent intent = new Intent(holder.itemView.getContext(), CarDetailsActivity.class);
 
-			//intent.putExtra("carId", "" + item.getId());
+			intent.putExtra("carId", "" + item.getId());
 
 			holder.itemView.getContext().startActivity(intent);
 		});

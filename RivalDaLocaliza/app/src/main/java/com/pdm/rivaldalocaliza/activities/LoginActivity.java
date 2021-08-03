@@ -2,6 +2,7 @@ package com.pdm.rivaldalocaliza.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -138,13 +139,23 @@ public class LoginActivity extends AppCompatActivity {
 				.enqueue(new Callback<Authentication>() {
 				@Override
 				public void onResponse(Call<Authentication> call, Response<Authentication> response) {
-					assert response.body() != null;
-					session.setToken(response.body().getToken());
-					session.setRefresh_token(response.body().getRefresh_token());
-					database.getUserSessionDAO().update(session);
 
-					Intent intent = new Intent(LoginActivity.this, MyLoanedCarActivity.class);
-					startActivity(intent);
+					if (response.code() == 400) {
+						database.getUserSessionDAO().delete(session);
+						Snackbar
+							.make(view, "Não foi possível revalidar seus dados, por favor, conecte-se novamente.", Snackbar.LENGTH_LONG)
+							.setBackgroundTint(
+								getResources().getColor(R.color.red_500, getTheme()))
+							.show();
+					} else {
+						assert response.body() != null;
+						session.setToken(response.body().getToken());
+						session.setRefresh_token(response.body().getRefresh_token());
+						database.getUserSessionDAO().update(session);
+
+						Intent intent = new Intent(LoginActivity.this, MyLoanedCarActivity.class);
+						startActivity(intent);
+					}
 				}
 
 				@Override
