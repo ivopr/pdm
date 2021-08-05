@@ -8,5 +8,5 @@ import lombok.Getter;
 public class Car {
 	Category category;
 	List<Specification> specifications;
-	String id, name, description, daily_rate, license_plate, fine_amount, brand;
+	String id, name, description, image, daily_rate, license_plate, fine_amount, brand;
 }

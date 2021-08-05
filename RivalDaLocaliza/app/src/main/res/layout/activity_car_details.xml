@@ -67,15 +67,15 @@
         android:id="@+id/details_rent"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/shape_background_button_res"
         android:fontFamily="@font/poppins_medium"
         android:text="Quero Alugar"
         android:textColor="@color/white"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/details_daily_fine"
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -113,27 +113,27 @@
         app:layout_constraintTop_toBottomOf="@+id/details_daily_price" />
 
     <TextView
-        android:id="@+id/txMulta"
+        android:id="@+id/details_daily_fine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="R$ 20,00"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/details_daily_fine"
-        app:layout_constraintStart_toStartOf="@+id/details_daily_fine"
-        app:layout_constraintTop_toBottomOf="@+id/details_daily_fine" />
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginBottom="8dp"
         android:text="Para cada dia de atraso na entrega será cobrado o valor da multa"
         android:textColor="@color/purple_300"
         android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/details_rent"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintStart_toStartOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView9"
@@ -142,9 +142,11 @@
         android:text="A integridade do carro será verificada na entrega"
         android:textColor="@color/purple_300"
         android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"

@@ -89,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
 								} else {
 									UserSession newUserSession = new UserSession();
 									User newUser = new User();
+									List<User> usersOnDB = database.getUserDAO().getUsers();
 
 									newUserSession.setToken(response.body().getToken());
 									newUserSession.setRefresh_token(response.body().getRefresh_token());
@@ -97,7 +98,15 @@ public class LoginActivity extends AppCompatActivity {
 									newUser.setEmail(response.body().getUser().getEmail());
 
 									database.getUserSessionDAO().insert(newUserSession);
-									database.getUserDAO().insert(newUser);
+									if (!usersOnDB.isEmpty()) {
+										User userToUpdate = users.get(0);
+										userToUpdate.setEmail(newUser.getEmail());
+										userToUpdate.setName(newUser.getName());
+
+										database.getUserDAO().update(userToUpdate);
+									} else {
+										database.getUserDAO().insert(newUser);
+									}
 								}
 
 								username.setText("");

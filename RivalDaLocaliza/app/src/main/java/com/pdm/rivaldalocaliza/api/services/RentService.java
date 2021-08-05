@@ -3,10 +3,14 @@ package com.pdm.rivaldalocaliza.api.services;
 import com.pdm.rivaldalocaliza.models.Car;
 import com.pdm.rivaldalocaliza.models.Category;
 import com.pdm.rivaldalocaliza.models.MyLoan;
+import com.pdm.rivaldalocaliza.models.RentCar;
+import com.pdm.rivaldalocaliza.models.RentCarRet;
+import com.pdm.rivaldalocaliza.models.ReturnCar;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
@@ -27,7 +31,7 @@ public interface RentService {
 	 * @return Car
 	 */
 	@GET("cars/{carId}")
-	Call<Car> getCar(@Path("carId") String carId);
+	Call<Car> getCar(@Header("Authorization") String userToken, @Path("carId") String carId);
 
 	/**
 	 * Busca e retorna o carro alugado pelo usuário
@@ -36,4 +40,19 @@ public interface RentService {
 	 */
 	@GET("rentals/user")
 	Call<MyLoan> getMyLoanedCar(@Header("Authorization") String userToken);
+
+	/**
+	 * Realiza a locação do veículo
+	 * @param rentData RentCar obj
+	 * @return RentCarRet
+	 */
+	@POST("rentals")
+	Call<RentCarRet> rentCar(@Header("Authorization") String userToken, @Body RentCar rentData);
+
+	/**
+	 * Realiza a devolução do veículo
+	 * @return RentCarRet
+	 */
+	@POST("rentals/devolution/{rentalId}")
+	Call<ReturnCar> returnCar(@Header("Authorization") String userToken, @Path("rentalId") String rentalId);
 }
